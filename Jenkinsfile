@@ -16,4 +16,20 @@ node{
         deploy adapters: [tomcat8(credentialsId: 'tomcat-creds-final', path: '', url: 'http://localhost:8888')], contextPath: 'bootcamp4', war: '**/*.war'
     }
     
+    stage('build docker image'){
+        sh 'docker build -t pripatil/bootcamp3:1.0.2'
+        }
+    
+    stage('push docker image to docker hub'){
+      sh 'docker push pripatil/bootcamp3:1.0.2'
+      }
+    
+    stage('run the docker image'){
+    sh 'docker run -p 8888:8080 pripatil/bootcamp3:1.0.2'
+    }
+    
+    //stage('run the docker image on cloud'){
+    //sh 'ssh -i aws-key ec2-user@publickey'
+    //sh 'docker run -p 8888:8080 pripatil/bootcamp3:1.0.2'
+    //}   
 }

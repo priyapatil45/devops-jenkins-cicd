@@ -8,4 +8,4 @@ COPY ${JAR_FILE} app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
-MAINTAINER "shubhamkushwah123@gmail.com"
+MAINTAINER "priyapatil180@gmail.com"
